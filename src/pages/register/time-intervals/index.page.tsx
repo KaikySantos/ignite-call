@@ -99,6 +99,7 @@ export default function TimeIntervals() {
   const intervals = watch('intervals')
 
   async function handleSetTimeIntervals(data: any) {
+    console.log(data)
     const { intervals } = data as TimeIntervalsFormOutput
 
     await api.post('/users/time-intervals', {
@@ -120,7 +121,7 @@ export default function TimeIntervals() {
         <MultiStep size={4} currentStep={3} />
       </Header>
 
-      <IntervalBox as="form" onClick={handleSubmit(handleSetTimeIntervals)}>
+      <IntervalBox as="form" onSubmit={handleSubmit(handleSetTimeIntervals)}>
         <IntervalsContainer>
           {fields.map((field, index) => (
             <IntervalItem key={field.id}>
